@@ -1,11 +1,20 @@
-import * as React from 'react';
-import './style.css';
+import React from 'react';
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <Father>
+      <Son age={12} name="Eris" />
+    </Father>
   );
+}
+
+function Father(props) {
+  return React.cloneElement(props.children, {
+    mes: 'Message from Father Component',
+  });
+}
+
+function Son(props) {
+  console.log(props);
+  return <div>Hello I'm Son.</div>;
 }
